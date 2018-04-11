@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="PHP-SRePS Solution">
+        <meta name="author" content="Group 3">
+        
+        <link rel="stylesheet" href="style/css/style.css">
+        
+        <title>PHP-SRePS</title>
+    </head>
+
+    <body id="sales">
+        
+        
+        <!-- HEADER -->
+        
+        
+        <header>
+            <div id="topBar"></div><!-- Only exists for style points - Magic happens in css -->
+            <a href="index.html" title="Home"><img id="logo" src="style/images/placeholder.png" alt="PHP-SRePS Logo"></a>
+            
+            <nav id="topNav">
+                <ul>
+                    <li><a href="sales.html" title="Sales">Sales</a></li>
+                    <li><a href="customers.html" title="Customers">Customers</a></li>
+                    <li><a href="orders.html" title="Orders">Orders</a></li>
+                    <li><a href="stock.html" title="Stock">Stock</a></li>
+                    <li><a href="reporting.html" title="Reporting">Reporting</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        
+        <!-- MAIN -->
+        
+        
+        <main>
+            <section>
+                <article>
+                    <form action="" id="salesForm">
+                        <fieldset>
+                            <legend>Customer Details</legend>
+                            <p>
+                                <label for="givenName">Given Name: </label>
+                                <input name="givenName" id="salesGivenName" class="required" type="text" maxlength="64" required="required" title="Alphabet, Spaces, Hyphens"/>
+                                <label for="surname">Surname: </label>
+                                <input name="surname" id="salesSurname" class="required" type="text" maxlength="25" required="required" title="Alphabet, Spaces, Hyphens"/>
+                            </p>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Product Details</legend>
+                            <p>
+                                <!-- TODO: Make this not this -->
+                                <label for="product">Product: </label>
+                                <select name="product" id="salesProduct" class="required">
+                                    <option selected="selected" disabled="disabled">Product</option>
+                                    <option value="Prod1">Product 1</option>
+                                    <option value="Prod2">Product 2</option>
+                                    <option value="Prod3">Product 3</option>
+                                    <option value="Prod4">Product 4</option>
+                                </select>
+                                <label for="price">Price</label>
+                                <input name="price" id="salesPrice" class="required" type="text" required="required" title="Greater than 0">
+                                <label for="quantity">Quantity</label>
+                                <input name="quantity" id="salesQuantity" class="required" type="text" required="required" title="Greater than 0">
+                            </p>
+                            <p>
+                                Running Total: $<span id='runningTotal'>0</span>
+                            </p>
+                        </fieldset>
+                        <input type='reset' value='Reset' />
+                        <input type='submit' value='Complete' />
+                    </form>
+                </article>
+            </section>
+        </main>
+        
+        
+        <!-- FOOTER -->
+        
+        
+        <footer>
+            <nav id="botNav">
+                <ul>
+                    <li><a href="sales.html" title="Sales">Sales</a></li>
+                    <li><a href="customers.html" title="Customers">Customers</a></li>
+                    <li><a href="orders.html" title="Orders">Orders</a></li>
+                    <li><a href="stock.html" title="Stock">Stock</a></li>
+                    <li><a href="reporting.html" title="Reporting">Reporting</a></li>
+                </ul>
+            </nav>
+            
+            <p>&#169; PHP-SRePs Group 3 Tue 6:30pm</p>
+            <p>Designed by Jai Lafferty, Stuart Bassett, Shenal Samarasinghe and Ryan Payne</p>    
+        </footer>
+    </body>
+</html>
