@@ -8,4 +8,7 @@
 
 ### Change Log
 
-**11/4/18** Created HTML structure for main page (rev.1)
+**11/4/18** 
+- Created HTML structure template
+- Created basic css styling
+- Created sample form
