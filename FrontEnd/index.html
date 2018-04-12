@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+    
+    <?php
+        $db = mysqli_connect('hostname','username','password','databasename');
+    ?>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="PHP-SRePS Solution">
+        <meta name="author" content="Group 3">
+        
+        <link rel="stylesheet" href="style/css/style.css">
+        
+        <title>PHP-SRePS</title>
+    </head>
+
+    <body id="index">
+        
+        
+        <!-- HEADER -->
+        
+        
+        <header>
+            <div id="topBar"></div><!-- Only exists for style points - Magic happens in css -->
+            <a href="index.html" title="Home"><img id="logo" src="style/images/placeholder.png" alt="PHP-SRePS Logo"></a>
+        </header>
+        
+        
+        <!-- MAIN -->
+        
+        
+        <main>
+            <section>
+                <article>
+                    <!-- CONTENT GOES HERE -->
+                    <h2 id="introText">What do you wish to do?</h2>
+                    <nav id="midNav">
+                        <ul>
+                            <li><a href="sales.html" title="Sales">Sales</a></li>
+                            <li><a href="customers.html" title="Customers">Customers</a></li>
+                            <li><a href="orders.html" title="Orders">Orders</a></li>
+                            <li><a href="stock.html" title="Stock">Stock</a></li>
+                            <li><a href="reporting.html" title="Reporting">Reporting</a></li>
+                        </ul>
+                    </nav>
+                </article>
+            </section>
+        </main>
+        
+        
+        <!-- FOOTER -->
+        
+        
+        <footer>
+            <!-- FOOTER CONTENT GOES HERE -->
+            <p>&#169; DP2 PHP-SRePs Group 3 Tue 6:30pm</p>
+            <p>Designed by Jai Lafferty, Stuart Bassett, Shenal Samarasinghe and Ryan Payne</p>
+        </footer>
+    </body>
+</html>
