@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="description" content="PHP-SRePS Solution">
         <meta name="author" content="Group 3">
-        
+        <link rel="icon" href="style/images/placeholder.png">
         <link rel="stylesheet" href="style/css/style.css">
         
         <title>PHP-SRePS</title>
@@ -64,9 +64,26 @@
                                 <input name="price" id="salesPrice" class="required" type="text" required="required" title="Greater than 0">
                                 <label for="quantity">Quantity</label>
                                 <input name="quantity" id="salesQuantity" class="required" type="text" required="required" title="Greater than 0">
+                                <button name="confirmProduct" class="formButton">Confirm</button>
                             </p>
                             <p>
-                                Running Total: $<span id='runningTotal'>0</span>
+                                Running Total: $<span id='runningTotal'>0</span>   
+                            </p>
+                            <p>
+                                <table id="currentOrder">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Product</th>
+                                        <th>Qty</th>
+                                        <th>Price</th>
+                                    </tr>
+                                    <tr>
+                                        <td>This</td>
+                                        <td>is</td>
+                                        <td>dummy</td>
+                                        <td>data</td>
+                                    </tr>
+                                </table>
                             </p>
                         </fieldset>
                         <input type='reset' value='Reset' />
