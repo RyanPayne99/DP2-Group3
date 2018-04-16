@@ -1,6 +1,8 @@
 -- DELIMITER command is necessary for the cli to define procedures.
 DELIMITER //
 
+-- Refer to db/README.md for procedure descriptions
+
 DROP PROCEDURE IF EXISTS AddItem; //
 CREATE PROCEDURE AddItem(item_name VARCHAR(64))
 MODIFIES SQL DATA
