@@ -46,9 +46,9 @@ DROP TABLE IF EXISTS `SaleItem`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `SaleItem` (
-  `Sale_ID` int(11) DEFAULT NULL,
-  `SI_ID` int(11) DEFAULT NULL,
-  `qty` int(11) DEFAULT NULL,
+  `Sale_ID` int(11) NOT NULL,
+  `SI_ID` int(11) NOT NULL,
+  `qty` int(11) NOT NULL,
   KEY `Sale_ID` (`Sale_ID`),
   KEY `SI_ID` (`SI_ID`),
   CONSTRAINT `SaleItem_ibfk_1` FOREIGN KEY (`Sale_ID`) REFERENCES `Sale` (`Sale_ID`),
@@ -75,8 +75,9 @@ DROP TABLE IF EXISTS `StockItem`;
 CREATE TABLE `StockItem` (
   `SI_ID` int(11) NOT NULL AUTO_INCREMENT,
   `Name` varchar(64) NOT NULL,
-  `Quantity` int(11) DEFAULT NULL,
-  PRIMARY KEY (`SI_ID`)
+  `Quantity` int(11) NOT NULL,
+  PRIMARY KEY (`SI_ID`),
+  UNIQUE KEY `Name` (`Name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -97,9 +98,9 @@ DROP TABLE IF EXISTS `StockItemOrder`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `StockItemOrder` (
-  `SI_ID` int(11) DEFAULT NULL,
-  `SO_ID` int(11) DEFAULT NULL,
-  `qty` int(11) DEFAULT NULL,
+  `SI_ID` int(11) NOT NULL,
+  `SO_ID` int(11) NOT NULL,
+  `qty` int(11) NOT NULL,
   KEY `SI_ID` (`SI_ID`),
   KEY `SO_ID` (`SO_ID`),
   CONSTRAINT `StockItemOrder_ibfk_1` FOREIGN KEY (`SI_ID`) REFERENCES `StockItem` (`SI_ID`),
@@ -148,4 +149,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-04-11 16:03:43
+-- Dump completed on 2018-04-13 14:19:28
