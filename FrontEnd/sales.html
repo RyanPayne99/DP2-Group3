@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -6,20 +6,20 @@
         <meta name="author" content="Group 3">
         <link rel="icon" href="style/images/icon.png">
         <link rel="stylesheet" href="style/css/style.css">
-        
+
         <title>PHP-SRePS</title>
     </head>
 
     <body id="sales">
-        
-        
+
+
         <!-- HEADER -->
-        
-        
+
+
         <header>
             <div id="topBar"></div><!-- Only exists for style points - Magic happens in css -->
             <a href="index.html" title="Home"><img id="logo" src="style/images/placeholder.png" alt="PHP-SRePS Logo"></a>
-            
+
             <nav id="topNav">
                 <ul>
                     <li><a href="sales.html" title="Sales">Sales</a></li>
@@ -30,21 +30,21 @@
                 </ul>
             </nav>
         </header>
-        
-        
+
+
         <!-- MAIN -->
-        
-        
+
+
         <main>
             <section>
                 <article>
-                    <form action="" id="salesForm">
+                    <form  id="salesForm">
                         <fieldset>
                             <legend>Customer Details</legend>
                             <p>
-                                <label for="givenName">Given Name: </label>
+                                <label for='salesGivenName'>Given Name: </label>
                                 <input name="givenName" id="salesGivenName" class="required" type="text" maxlength="64" required="required" title="Alphabet, Spaces, Hyphens"/>
-                                <label for="surname">Surname: </label>
+                                <label for="salesSurname">Surname: </label>
                                 <input name="surname" id="salesSurname" class="required" type="text" maxlength="25" required="required" title="Alphabet, Spaces, Hyphens"/>
                             </p>
                         </fieldset>
@@ -52,22 +52,22 @@
                             <legend>Product Details</legend>
                             <p>
                                 <!-- TODO: Make this not this -->
-                                <label for="product">Product: </label>
-                                <select name="product" id="salesProduct" class="required">
-                                    <option selected="selected" disabled="disabled">Product</option>
-                                    <option value="Prod1">Product 1</option>
-                                    <option value="Prod2">Product 2</option>
-                                    <option value="Prod3">Product 3</option>
-                                    <option value="Prod4">Product 4</option>
+                                <label for="salesProduct">Product: </label>
+                                <select name="product" id='salesProduct' required="required">
+                                    <option selected='selected' disabled='disabled'>Product</option>
+                                    <option value='Prod1'>Product 1</option>
+                                    <option value='Prod2'>Product 2</option>
+                                    <option value='Prod3'>Product 3</option>
+                                    <option value='Prod4'>Product 4</option>
                                 </select>
-                                <label for="price">Price</label>
-                                <input name="price" id="salesPrice" class="required" type="text" required="required" title="Greater than 0">
-                                <label for="quantity">Quantity</label>
-                                <input name="quantity" id="salesQuantity" class="required" type="text" required="required" title="Greater than 0">
-                                <button name="confirmProduct" class="formButton">Confirm</button>
+                                <label for='salesPrice'>Price</label>
+                                <input name='price' id='salesPrice' class='required' type='text'  title='Greater than 0' required="required"/>
+                                <label for="salesQuantity">Quantity</label>
+                                <input name="quantity" id="salesQuantity"  type="text"  title="Greater than 0" required="required"/>
+                                <button name="confirmProduct" class="formButton" onclick="addItem(); return false;" >Confirm</button>
                             </p>
                             <p>
-                                Running Total: $<span id='runningTotal'>0</span>   
+                                Running Total: $<span id='runningTotal'>0</span>
                             </p>
                             <p>
                                 <table id="currentOrder">
@@ -84,7 +84,7 @@
                                         <td>data</td>
                                     </tr>
                                 </table>
-                            </p>
+                            <div id="box"></div>
                         </fieldset>
                         <input type='reset' value='Reset' />
                         <input type='submit' value='Complete' />
@@ -92,11 +92,11 @@
                 </article>
             </section>
         </main>
-        
-        
+
+
         <!-- FOOTER -->
-        
-        
+
+
         <footer>
             <nav id="botNav">
                 <ul>
@@ -107,9 +107,37 @@
                     <li><a href="reporting.php" title="Reporting">Reporting</a></li>
                 </ul>
             </nav>
-            
+
             <p>&#169; PHP-SRePs Group 3 Tue 6:30pm</p>
-            <p>Designed by Jai Lafferty, Stuart Bassett, Shenal Samarasinghe and Ryan Payne</p>    
+            <p>Designed by Jai Lafferty, Stuart Bassett, Shenal Samarasinghe and Ryan Payne</p>
         </footer>
+        <script>
+                var bill =[];
+
+
+
+                function addItem(){
+                    var salesProduct = document.getElementById("salesProduct").value;
+                    var salesPrice = document.getElementById("salesPrice").value;
+                    var salesQuantity = document.getElementById("salesQuantity").value;
+
+                    bill.push({"Product": salesProduct, "Price": salesPrice, "Quantity": salesQuantity});
+                    var html = "<table  id='currentOrder'>";
+                    for (var i = 0; i < bill.length; i++) {
+                        html+="<tr>";
+                        html+="<td>"+bill[i].Product+"</td>";
+                        html+="<td>"+bill[i].Price+"</td>";
+                        html+="<td>"+bill[i].Quantity+"</td>";
+
+                        html+="</tr>";
+
+                    }
+                    html+="</table>";
+                    document.getElementById("box").innerHTML = html;
+                }
+
+        </script>
     </body>
 </html>
+
+
