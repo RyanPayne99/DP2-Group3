@@ -55,36 +55,26 @@
                                 <label for="salesProduct">Product: </label>
                                 <select name="product" id='salesProduct' required="required">
                                     <option selected='selected' disabled='disabled'>Product</option>
-                                    <option value='Prod1'>Product 1</option>
-                                    <option value='Prod2'>Product 2</option>
-                                    <option value='Prod3'>Product 3</option>
-                                    <option value='Prod4'>Product 4</option>
+                                    <option value='Product 1'>Product 1</option>
+                                    <option value='Product 2'>Product 2</option>
+                                    <option value='Product 3'>Product 3</option>
+                                    <option value='Product 4'>Product 4</option>
                                 </select>
                                 <label for='salesPrice'>Price</label>
-                                <input name='price' id='salesPrice' class='required' type='text'  title='Greater than 0' required="required"/>
+                                <input name='price' id='salesPrice' class='required' type='number'  title='Greater than 0' required="required"/>
                                 <label for="salesQuantity">Quantity</label>
-                                <input name="quantity" id="salesQuantity"  type="text"  title="Greater than 0" required="required"/>
+                                <input name="quantity" id="salesQuantity"  type="number"  title="Greater than 0" required="required"/>
                                 <button name="confirmProduct" class="formButton" onclick="addItem(); return false;" >Confirm</button>
                             </p>
                             <p>
-                                Running Total: $<span id='runningTotal'>0</span>
+                                Running Total: $<span id='runningTotal'></span>
                             </p>
                             <p>
-                                <table id="currentOrder">
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Product</th>
-                                        <th>Qty</th>
-                                        <th>Price</th>
-                                    </tr>
-                                    <tr>
-                                        <td>This</td>
-                                        <td>is</td>
-                                        <td>dummy</td>
-                                        <td>data</td>
-                                    </tr>
-                                </table>
-                            <div id="box"></div>
+                                
+                                    <div id="box">        
+                                        <!-- JS FILLS IN REST OF TABLE -->
+                                        
+                                    </div>
                         </fieldset>
                         <input type='reset' value='Reset' />
                         <input type='submit' value='Complete' />
@@ -111,30 +101,52 @@
             <p>&#169; PHP-SRePs Group 3 Tue 6:30pm</p>
             <p>Designed by Jai Lafferty, Stuart Bassett, Shenal Samarasinghe and Ryan Payne</p>
         </footer>
-        <script>
-                var bill =[];
+        <script type="text/javascript">
+                
+            function init() {
+                html = '<table id="currentOrder"><tr><th>Product</th><th>Qty</th><th>Price</th></tr></table>';
+                document.getElementById("box").innerHTML = html;
+            }
+            
+            window.onload = init;
+            
+            var bill =[];
 
+            function addItem(){
+                var salesProduct = document.getElementById("salesProduct").value;
+                var salesPrice = document.getElementById("salesPrice").value;
+                var salesQuantity = document.getElementById("salesQuantity").value;
+                
+                if (salesPrice < 0){}
+                else if (salesProduct == "Product"){}
+                else if (salesQuantity < 0){}
+                else {bill.push({"Product": salesProduct, "Price": salesPrice, "Quantity": salesQuantity});}
+                
+                
+                var html = '<table id="currentOrder"><tr><th>Product</th><th>Qty</th><th>Price</th></tr>';
+                
+                total = 0;
+                
+                for (var i = 0; i < bill.length; i++) {
+                    //Soft checking
+                    if (salesPrice.isNaN){ break;}
+                    if (salesProduct == "Product"){break;}
+                    if (salesQuantity.isNaN){break;}
+                    html+="<tr>";
+                    html+="<td>"+bill[i].Product+"</td>";
+                    html+="<td>"+bill[i].Quantity+"</td>";
+                    html+="<td>"+'$'+bill[i].Price+"</td>";
+                    html+="</tr>";
+                    
+                    total += parseInt(bill[i].Price);
 
-
-                function addItem(){
-                    var salesProduct = document.getElementById("salesProduct").value;
-                    var salesPrice = document.getElementById("salesPrice").value;
-                    var salesQuantity = document.getElementById("salesQuantity").value;
-
-                    bill.push({"Product": salesProduct, "Price": salesPrice, "Quantity": salesQuantity});
-                    var html = "<table  id='currentOrder'>";
-                    for (var i = 0; i < bill.length; i++) {
-                        html+="<tr>";
-                        html+="<td>"+bill[i].Product+"</td>";
-                        html+="<td>"+bill[i].Price+"</td>";
-                        html+="<td>"+bill[i].Quantity+"</td>";
-
-                        html+="</tr>";
-
-                    }
-                    html+="</table>";
-                    document.getElementById("box").innerHTML = html;
                 }
+                html+="</table>";
+                document.getElementById("box").innerHTML = html;
+                    
+                //Update running total
+                document.getElementById("runningTotal").innerHTML = total;
+            }
 
         </script>
     </body>
