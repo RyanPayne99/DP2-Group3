@@ -24,9 +24,9 @@
             
             <nav id="topNav">
                 <ul>
-                    <li><a href="sales.html" title="Sales">Sales</a></li>
+                    <li><a href="sales.php" title="Sales">Sales</a></li>
                     <li><a href="customers.html" title="Customers">Customers</a></li>
-                    <li><a href="orders.html" title="Orders">Orders</a></li>
+                    <li><a href="orders.php" title="Orders">Orders</a></li>
                     <li><a href="stock.php" title="Stock">Stock</a></li>
                     <li><a href="reporting.php" title="Reporting">Reporting</a></li>
                 </ul>
@@ -125,9 +125,9 @@
         <footer>
             <nav id="botNav">
                 <ul>
-                    <li><a href="sales.html" title="Sales">Sales</a></li>
+                    <li><a href="sales.php" title="Sales">Sales</a></li>
                     <li><a href="customers.html" title="Customers">Customers</a></li>
-                    <li><a href="orders.html" title="Orders">Orders</a></li>
+                    <li><a href="orders.php" title="Orders">Orders</a></li>
                     <li><a href="stock.php" title="Stock">Stock</a></li>
                     <li><a href="reporting.php" title="Reporting">Reporting</a></li>
                 </ul>

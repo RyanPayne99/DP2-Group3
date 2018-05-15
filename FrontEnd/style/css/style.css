@@ -185,6 +185,11 @@ nav ul li a:hover {
     text-align: center;
 }
 
+.error {
+    font-size: 10px;
+    color: red;
+}
+
 /*
 * === FOOTER ===
 */

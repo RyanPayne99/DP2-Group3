@@ -39,6 +39,54 @@ LOCK TABLES `Sale` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `StockItem`
+--
+
+DROP TABLE IF EXISTS `StockItem`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `StockItem` (
+  `SI_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Name` varchar(64) NOT NULL,
+  `Quantity` int(11) NOT NULL,
+  PRIMARY KEY (`SI_ID`),
+  UNIQUE KEY `Name` (`Name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `StockItem`
+--
+
+LOCK TABLES `StockItem` WRITE;
+/*!40000 ALTER TABLE `StockItem` DISABLE KEYS */;
+/*!40000 ALTER TABLE `StockItem` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `StockOrder`
+--
+
+DROP TABLE IF EXISTS `StockOrder`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `StockOrder` (
+  `SO_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `orderdate` datetime NOT NULL,
+  PRIMARY KEY (`SO_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `StockOrder`
+--
+
+LOCK TABLES `StockOrder` WRITE;
+/*!40000 ALTER TABLE `StockOrder` DISABLE KEYS */;
+/*!40000 ALTER TABLE `StockOrder` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `SaleItem`
 --
 
@@ -66,31 +114,6 @@ LOCK TABLES `SaleItem` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `StockItem`
---
-
-DROP TABLE IF EXISTS `StockItem`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `StockItem` (
-  `SI_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Name` varchar(64) NOT NULL,
-  `Quantity` int(11) NOT NULL,
-  PRIMARY KEY (`SI_ID`),
-  UNIQUE KEY `Name` (`Name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `StockItem`
---
-
-LOCK TABLES `StockItem` WRITE;
-/*!40000 ALTER TABLE `StockItem` DISABLE KEYS */;
-/*!40000 ALTER TABLE `StockItem` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `StockItemOrder`
 --
 
@@ -115,29 +138,6 @@ CREATE TABLE `StockItemOrder` (
 LOCK TABLES `StockItemOrder` WRITE;
 /*!40000 ALTER TABLE `StockItemOrder` DISABLE KEYS */;
 /*!40000 ALTER TABLE `StockItemOrder` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `StockOrder`
---
-
-DROP TABLE IF EXISTS `StockOrder`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `StockOrder` (
-  `SO_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `orderdate` datetime NOT NULL,
-  PRIMARY KEY (`SO_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `StockOrder`
---
-
-LOCK TABLES `StockOrder` WRITE;
-/*!40000 ALTER TABLE `StockOrder` DISABLE KEYS */;
-/*!40000 ALTER TABLE `StockOrder` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

@@ -1,34 +1,50 @@
 
 "use strict";
 
-function saveStockName() {
+function validateStock() {
 	var result = true;
 
-	var stockQuantError = document.getElementById("stockQuantityError");
-	var stockName = document.getElementById("stockItemName").value;
+	var itemError = document.getElementById("itemError");
+	var quantityError = document.getElementById("quantityError");
 
-	if (stockName == "") {
-		stockQuantError.innerHTML = "The stock item name cannot be empty.";
-		result = false;
-	} else if (!stockName.match(/^[a-zA-z -]+$/)) {
-		stockQuantError.innerHTML = "The stock item name must only contain alphabetical characters, hyphens or spaces.";
+	var stockNameText = document.getElementById("itemNameText");
+	var stockNameList = document.getElementById("itemNameList");
+	var quantity = document.getElementById("itemQty").value;
+
+	if (stockNameText.style.display == "inline") {
+		if (stockNameText.value == "") {
+			itemError.innerHTML = "The name of the item cannot be empty.";
+			result = false;
+		} else if (!stockNameText.value.match(/^[a-zA-Z -]+$/)) {
+			itemError.innerHTML = "The name of an item must only contain alphabetical characters, hyphens or spaces.";
+			result = false;
+		}
+	} else if (stockNameList.value == "Unselected" && stockNameList.style.display == "inline") {
+		itemError.innerHTML = "Please select an item from the item dropdown.";
 		result = false;
 	} else {
-		stockQuantError.innerHTML = "";
+		itemError.innerHTML = "";
 	}
 
-	if (result) {
-		window.location = "stock.php?SearchName=" + stockName;
+	if (quantity == "") {
+		quantityError.innerHTML = "The item quantity must not be empty.";
+		result = false;
+	} else if (isNaN(quantity)) {
+		quantityError.innerHTML = "The item quantity must only contain numbers.";
+		result = false;
+	} else {
+		quantityError.innerHTML = "";
 	}
+
+	return result;
 }
 
 function init() {
 	
 	var stockForm = document.getElementById("stockForm");
 	if (stockForm != null) {
-		//Calls cancelBooking when the cancel button is clicked
-		var getStockQuantity = document.getElementById("getStockQuantity");
-		getStockQuantity.onclick = saveStockName;
+		//Validates all form items on submit
+		stockForm.onsubmit = validateStock;
 	}
 }
 
