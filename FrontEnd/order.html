@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="PHP-SRePS Solution">
+        <meta name="author" content="Group 3">
+        <link rel="icon" href="style/images/icon.png">
+        <link rel="stylesheet" href="style/css/style.css">
+
+        <title>PHP-SRePS</title>
+    </head>
+
+    <body id="sales">
+
+
+        <!-- HEADER -->
+
+
+        <header>
+            <div id="topBar"></div><!-- Only exists for style points - Magic happens in css -->
+            <a href="index.html" title="Home"><img id="logo" src="style/images/placeholder.png" alt="PHP-SRePS Logo"></a>
+
+            <nav id="topNav">
+                <ul>
+                    <li><a href="sales.html" title="Sales">Sales</a></li>
+                    <li><a href="customers.html" title="Customers">Customers</a></li>
+                    <li><a href="orders.html" title="Orders">Orders</a></li>
+                    <li><a href="stock.php" title="Stock">Stock</a></li>
+                    <li><a href="reporting.php" title="Reporting">Reporting</a></li>
+                </ul>
+            </nav>
+        </header>
+
+
+        <!-- MAIN -->
+
+
+        <main>
+            <section>
+                <article>
+                    <form  id="salesForm">
+                        <fieldset>
+                            <legend>Order Details</legend>
+                            <p>
+                                <label for='StockID'>Stock ID: </label>
+                                <input name="stockId" id="StockID" class="required" type="text" maxlength="5" required="required"/>
+                                <label for="Quantity">Quantity: </label>
+                                <input name="quantity" id="Quantity" class="required" type="number"  required="required"/>
+                            </p>
+                        </fieldset>
+                        <input type='reset' value='Reset' />
+                        <button name="order" class="formButton" onclick="sendOrder(); return false;" >Order</button>
+                    </form>
+                </article>
+            </section>
+        </main>
+
+
+        <!-- FOOTER -->
+
+
+        <footer>
+            <nav id="botNav">
+                <ul>
+                    <li><a href="sales.html" title="Sales">Sales</a></li>
+                    <li><a href="customers.html" title="Customers">Customers</a></li>
+                    <li><a href="orders.html" title="Orders">Orders</a></li>
+                    <li><a href="stock.php" title="Stock">Stock</a></li>
+                    <li><a href="reporting.php" title="Reporting">Reporting</a></li>
+                </ul>
+            </nav>
+
+            <p>&#169; PHP-SRePs Group 3 Tue 6:30pm</p>
+            <p>Designed by Jai Lafferty, Stuart Bassett, Shenal Samarasinghe and Ryan Payne</p>
+        </footer>
+        <script>
+
+                function sendOrder(){
+
+                }
+
+        </script>
+    </body>
+</html>
+
+
